@@ -4,13 +4,14 @@ pipeline {
     stages {
         stage('Pull Code from GitHub') {
             steps {
-                git 'https://github.com/Ishan-lokari/pyapp.git/'
+                git branch: 'main',
+                    url: 'https://github.com/Ishan-lokari/pyapp.git'
             }
         }
 
         stage('Run Hello World') {
             steps {
-                bat 'python pyapp\\hello.py'
+                bat 'python hello.py'
             }
         }
     }
