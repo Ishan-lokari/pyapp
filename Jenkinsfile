@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Pull Code from GitHub') {
             steps {
-                git 'https://github.com/<your-username>/<your-repo-name>.git'
+                git 'https://github.com/Ishan-lokari/pyapp.git/'
             }
         }
 
