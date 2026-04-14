@@ -9,11 +9,15 @@ pipeline {
 
     stages {
 
-      
+        stage('Checkout Repo') {
+            steps {
+                git 'https://github.com/Ishan-lokari/pyapp.git'
+            }
+        }
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t hello-python .'
+                sh 'docker build --no-cache -t hello-python pyapp/'
             }
         }
 
