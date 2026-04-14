@@ -1,27 +1,25 @@
 pipeline {
-    agent { label 'slave1' }
+    agent any
 
     stages {
-        stage('Pull Code from GitHub') {
+        stage('Clone Repo') {
             steps {
-                git branch: 'main',
-                    url: 'https://github.com/Ishan-lokari/pyapp.git'
+                git 'https://github.com/Ishan-lokari/pyapp.git'
             }
         }
 
-        stage('Run Hello World') {
+        stage('Build Docker Image') {
             steps {
-                bat 'python hello.py'
+                script {
+                    docker.build("hello-python")
+                }
             }
         }
-    }
 
-    post {
-        success {
-            echo 'Python Hello World ran successfully on slave1!'
-        }
-        failure {
-            echo 'Something went wrong!'
+        stage('Run Container') {
+            steps {
+                sh 'docker run hello-python'
+            }
         }
     }
 }
