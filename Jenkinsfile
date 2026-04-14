@@ -9,9 +9,16 @@ pipeline {
 
     stages {
 
+        stage('Fetch from GitHub') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/Ishan-lokari/pyapp.git'
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
-                sh 'docker build --no-cache -t hello-python pyapp/'
+                sh 'docker build --no-cache -t hello-python .'
             }
         }
 
