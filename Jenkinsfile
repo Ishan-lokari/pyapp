@@ -9,11 +9,7 @@ pipeline {
 
     stages {
 
-        stage('Clone Repo') {
-            steps {
-                git 'https://github.com/Ishan-lokari/pyapp.git'
-            }
-        }
+      
 
         stage('Build Docker Image') {
             steps {
