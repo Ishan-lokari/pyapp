@@ -9,12 +9,6 @@ pipeline {
 
     stages {
 
-        stage('Checkout Repo') {
-            steps {
-                git 'https://github.com/Ishan-lokari/pyapp.git'
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 sh 'docker build --no-cache -t hello-python pyapp/'
@@ -60,7 +54,7 @@ pipeline {
 
     post {
         success {
-            echo "🚀 pyapp deployed successfully to Cloud Run!"
+            echo "🚀 Deployment successful!"
         }
         failure {
             echo "❌ Deployment failed"
