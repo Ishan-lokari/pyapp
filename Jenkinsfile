@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     environment {
-        PROJECT_ID = "ishan-project-489809"
+        PROJECT_ID = "l2-ishan"
         REGION = "us-central1"
-        IMAGE = "us-central1-docker.pkg.dev/ishan-project-489809/pyapp/hello-python"
+        IMAGE = "us-central1-docker.pkg.dev/l2-ishan/pyapp/hello-python"
     }
 
     stages {
@@ -61,10 +61,10 @@ pipeline {
 
     post {
         success {
-            echo "🚀 Deployment successful!"
+            echo "Deployment successful!"
         }
         failure {
-            echo "❌ Deployment failed"
+            echo  Deployment failed"
         }
     }
 }
